@@ -1,6 +1,7 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import { Route } from 'react-router/cjs/react-router.min';
+// import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+// import { Route } from 'react-router/cjs/react-router.min';
+import { Redirect, Route } from 'react-router-dom'
 
 const PrivateRoute = ({ children, ...routeProps }) => {
   const profile = false;
