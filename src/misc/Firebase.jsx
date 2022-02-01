@@ -6,6 +6,7 @@ import 'firebase/database'
 const config = {
     apiKey: "AIzaSyDfqEQoYVktFMcU5A7LmLLxMa-7jMCjesg",
     authDomain: "chaa-ats.firebaseapp.com",
+    databaseURL : "https://chaa-ats-default-rtdb.asia-southeast1.firebasedatabase.app/",
     projectId: "chaa-ats",
     storageBucket: "chaa-ats.appspot.com",
     messagingSenderId: "396007634917",
