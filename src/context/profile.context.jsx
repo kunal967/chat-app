@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { Alert } from 'rsuite';
 import { auth, database } from '../misc/Firebase';
 
 const ProfileContext = createContext();
@@ -7,6 +8,7 @@ const ProfileContext = createContext();
 export const ProfileProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
   const[isLoading, setIsLoading] = useState(true)
+
   useEffect(()=>{
     let userRef;
     const authUnsub = auth.onAuthStateChanged(authObj => {
