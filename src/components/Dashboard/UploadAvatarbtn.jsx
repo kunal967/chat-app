@@ -8,7 +8,7 @@ import { useProfile } from '../../context/profile.context';
 import ProfileAvatar from './ProfileAvatar';
 import { getUserUpdates } from '../../misc/helpers';
 
-const fileInputTypes = '.png , .jpg, .jpeg'; 
+const fileInputTypes = '.png , .jpg, .jpeg';
 
 const acceptedFileTypes = ['image/png', 'image/jpeg', 'image/pjpeg'];
 
@@ -74,7 +74,7 @@ const UploadAvatarbtn = () => {
         downloadURL,
         database
       );
-      await database.ref().update(updates)
+      await database.ref().update(updates);
 
       setIsLoading(false);
       Alert.info('Avatar Updated Succesfully', 4000);
@@ -86,8 +86,11 @@ const UploadAvatarbtn = () => {
 
   return (
     <div className="mt-3 text-center">
-      
-      <ProfileAvatar src={profile.avatar} name={profile.name} className="width-200 height-200 img-fullsize font-huge" />
+      <ProfileAvatar
+        src={profile.avatar}
+        name={profile.name}
+        className="width-200 height-200 img-fullsize font-huge"
+      />
 
       <div>
         <label
