@@ -49,7 +49,7 @@ export const ProfileProvider = ({ children }) => {
 
         database.ref('.info/connected').on('value', snapshot => {
           // If we're not currently connected, don't do anything.
-          if (snapshot.val() === false) {
+          if (!!snapshot.val() === false) {
             return;
           }
 
@@ -76,13 +76,13 @@ export const ProfileProvider = ({ children }) => {
     });
     return () => {
       authUnsub();
+      database.ref('.info/connected').off()
       if (userRef) {
         userRef.off();
       }
       if (userStausRef) {
         userStausRef.off();
       }
-      database.ref('.info/connected').off()
     };
   }, []);
 

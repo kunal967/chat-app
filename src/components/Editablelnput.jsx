@@ -8,43 +8,43 @@ const Editablelnput = ({
   label = null,
   placeholder = 'write your value',
   emptymsg = 'input is empty',
-  ...inputprops}
-) => {
+  wrapperClassName = '',
+  ...inputprops
+}) => {
   const [input, setInput] = useState(initialValue);
   const [isEditable, setIsEditable] = useState(false);
 
   const onInputChange = useCallback(value => {
-    setInput(value)
-  },[])
+    setInput(value);
+  }, []);
 
   const onEditClick = useCallback(() => {
     setIsEditable(p => !p);
     setInput(initialValue);
   }, [initialValue]);
 
-  const onSaveClick = async ()=>{
-    const trimmed = input.trim()
+  const onSaveClick = async () => {
+    const trimmed = input.trim();
 
-    if(trimmed === ''){
-      Alert.info(emptymsg, 4000)
+    if (trimmed === '') {
+      Alert.info(emptymsg, 4000);
     }
-    if(trimmed !== initialValue){
-      await onSave(trimmed)
+    if (trimmed !== initialValue) {
+      await onSave(trimmed);
     }
 
-    setIsEditable(false)
-  }
-
+    setIsEditable(false);
+  };
 
   return (
-    <div>
+    <div className={wrapperClassName}>
       {label}
       <InputGroup>
         <Input
           {...inputprops}
           disabled={!isEditable}
           placeholder={placeholder}
-          value= {input}
+          value={input}
           onChange={onInputChange}
         />
         <InputGroup.Button onClick={onEditClick}>
@@ -52,7 +52,7 @@ const Editablelnput = ({
         </InputGroup.Button>
         {isEditable && (
           <InputGroup.Button onClick={onSaveClick}>
-            <Icon icon= "check"/>
+            <Icon icon="check" />
           </InputGroup.Button>
         )}
       </InputGroup>
